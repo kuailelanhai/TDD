@@ -11,7 +11,7 @@ describe("Creat Number",function(){
     var random_number
     it("should first be a number",function(){
         random_number = creat_random_number()
-        expect(isNaN(random_number)).toBe(true)
+        expect(isNaN(random_number)).toBe(false)
     })
     it("should second make a four digit number",function(){
         random_number = creat_random_number()

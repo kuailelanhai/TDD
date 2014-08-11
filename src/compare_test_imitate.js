@@ -6,16 +6,15 @@ function guess_success(){
     document.getElementById("confirm_button").click()
 }
 function guess_failed(number){
-    var i;
-    for(i = 0;i<number;i++)
+    for(var i = 0;i<number;i++)
     document.getElementById("number").value = "1230"
     document.getElementById("confirm_button").click()
 }
 function export_label(message){
     document.getElementById("label").innerHTML = message
 }
-function button_disabled(abled){
-    document.getElementById("confirm_button").disabled = abled
+function button_disabled(compare){
+    document.getElementById("confirm_button").disabled = compare
 }
 function get_input(){
     return document.getElementById("number").value
@@ -38,7 +37,7 @@ function put_A_and_B_number(){
     return number_of_A + "A" + number_of_B + "B"
 }
 function add_number_of_time(){
-    var number = JSON.parse(localStorage,getItem(number_of_time))
+    var number = JSON.parse(localStorage.getItem("number_of_time"))
     number = number + 1
     localStorage.setItem("number_of_time",number)
 }

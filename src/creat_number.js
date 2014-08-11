@@ -22,6 +22,7 @@ check_if_one_number = function(random_number,one_number){
 }
 number_is_not_repeat = function(){
     var random_number = JSON.parse(localStorage.getItem("random_number"))
+    var status_number
     for(var i = 0;i<= 3;i ++){
         for(var j = 0;j <= 3;j++){
             if(random_number[i] != random_number[j]){
@@ -35,7 +36,7 @@ number_is_not_repeat = function(){
 }
 start = function(){
     creat_random_number()
-    document.getElementById("input").value = ""
+    document.getElementById("number").value = ""
     document.getElementById("label").innerHTML = ""
     document.getElementById("confirm_button").disabled = "false"
     localStorage.number_of_time = "0"

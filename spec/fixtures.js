@@ -3,7 +3,7 @@
  */
 function clear(){
     localStorage.random_number = ""
-    document.getElementById("input").value = ""
+    document.getElementById("number").value = ""
     document.getElementById("label").innerHTML = ""
     document.getElementById("confirm_button").disabled = false
     localStorage.number_of_time = "0"
