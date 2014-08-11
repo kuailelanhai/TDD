@@ -41,5 +41,4 @@ start = function(){
     localStorage.number_of_time = "0"
     localStorage.number_of_A = "0"
     localStorage.number_of_B ="0"
-    console.log('----------')
 }

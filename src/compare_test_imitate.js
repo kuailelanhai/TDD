@@ -42,7 +42,7 @@ function add_number_of_time(){
     number = number + 1
     localStorage.setItem("number_of_time",number)
 }
-function add_number_A_time(){
+function add_number_A_time(i,j,guess_number,random_number){
     var number_A = number_of_A()
     var guess_number = get_input()
     var random_number = JSON.parse(localStorage.getItem("random_number"))
@@ -98,7 +98,7 @@ function get_A_and_B_result_success(random_number){
     }
     return get_A_and_B_failed(random_number,number_of_time,guess_number)
 }
-function get_A_and_B_failed(){
+function get_A_and_B_failed(random_number,number_of_time,guess_number){
 //    var random_number = JSON.parse(localStorage.getItem("random_number"))
 //    var number_of_time = JSON.parse(localStorage.getItem("number_of_time"))
 //    var guess_number = get_input()
@@ -106,31 +106,20 @@ function get_A_and_B_failed(){
         button_disabled(true)
         export_label("猜测数字失败!")
     }
+    return continue_guess(random_number,guess_number,number_of_time)
 }
-
-
 function realize_analysis(guess_number, random_number) {
-    var i = "0"
-    _.each(guess_number, function (list) {
-        compare_number(i, guess_number, random_number);
-        i=parseInt(i)
-        i = (i+1).toString();
-    })
+    for(var i = 0;i <= 3; i ++){
+        for(var j = 0;j <= 3; j ++){
+            add_number_A_time(i,j,guess_number,random_number)
+        }
+    }
     add_number_of_time()
     return put_A_and_B_number()
 }
-
-function compare_number(i, guess_number, random_number) {
-    var j ="0"
-    _.each(random_number, function (list) {
-        add_number_of_A(i, j, guess_number, random_number)
-        j=parseInt(j)
-        j = (j+1).toString();
-    })
-}
-function guess_continue(sorting, number_for_times) {
-    if (sorting != "4A0B" && number_for_times <= 6) {
-        label_export(sorting);
+function continue_guess(random_number,guess_number,number_of_time){
+    if (random_number != guess_number && number_for_times <= 6) {
+        export_label(realize_analysis(guess_number, random_number));
         number_of_A_and_B();
     }
 }
