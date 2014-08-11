@@ -8,6 +8,7 @@ describe("Compare Number",function(){
     afterEach(function(){
 
     })
+    var random_number = "1234"
     it("should be realize compare number",function(){
         var number_is_guess = "1234"
         var compare_guess_random = realize_analysis(number_is_guess,random_number)

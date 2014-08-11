@@ -18,12 +18,9 @@ describe("Creat Number",function(){
         expect(random_number.length).toBe(4)
     })
     it("should the number is not repeat",function(){
-        var number_status = number_is_not_repeat()
+        var status_number = number_is_not_repeat()
         expect(status_number).toBe("false")
     })
-    it("should be a random number",function(){
-        random_number = realize_number_random()
-        expect(random_status).toBe(true)
-    })
+
 
 })

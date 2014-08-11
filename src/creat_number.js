@@ -33,12 +33,13 @@ number_is_not_repeat = function(){
     }
     localStorage.setItem("status_number",status_number)
 }
-function start(){
+start = function(){
     creat_random_number()
     document.getElementById("input").value = ""
     document.getElementById("label").innerHTML = ""
-    document.getElementById("confirm_button").disabled = false
+    document.getElementById("confirm_button").disabled = "false"
     localStorage.number_of_time = "0"
     localStorage.number_of_A = "0"
     localStorage.number_of_B ="0"
+    console.log('----------')
 }
