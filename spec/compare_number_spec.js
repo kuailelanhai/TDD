@@ -27,7 +27,7 @@ describe("Compare Number",function(){
     it("should be 1A0B when number_is_guess is 1567",function() {
         var number_is_guess = "1567"
         var compare_guess_random = realize_analysis(number_is_guess, random_number)
-        expect(compare_guess_random).toBe("2A0B")
+        expect(compare_guess_random).toBe("1A0B")
     })
     it("should be 0A4B when number_is_guess is 4321",function() {
         var number_is_guess = "4321"

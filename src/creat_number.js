@@ -20,19 +20,17 @@ creat_random_number = function(){
 check_if_one_number = function(random_number,one_number){
     _.some(random_number,function(num){return num == one_number})
 }
-number_is_not_repeat = function(){
-    var random_number = JSON.parse(localStorage.getItem("random_number"))
+number_is_not_repeat = function(random_number){
+//    var random_number = JSON.parse(localStorage.getItem("random_number"))
     var status_number
-    for(var i = 0;i<= 3;i ++){
-        for(var j = 0;j <= 3;j++){
+    for(var i = 0;i< 3;i ++){
+        for(var j = i+1;j <= 3;j++){
             if(random_number[i] != random_number[j]){
-                return status_number = "false"
+                return "false"
             }
-            else
-            return status_number = "true"
         }
     }
-    localStorage.setItem("status_number",status_number)
+    return "true"
 }
 start = function(){
     creat_random_number()

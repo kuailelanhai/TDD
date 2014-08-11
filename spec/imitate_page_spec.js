@@ -5,7 +5,7 @@ describe("Creat Number",function() {
     beforeEach(function () {
         localStorage.random_number = "1234"
         localStorage.number_of_time = "0"
-        document.getElementById("confirm_button").disabled = false
+
     })
     afterEach(function () {
         localStorage.clear()
@@ -13,6 +13,7 @@ describe("Creat Number",function() {
     localStorage.random_number = "1234"
     localStorage.number_of_time = "0"
     document.getElementById("confirm_button").disabled = "false"
+
     it("should be show success when first export 1234",function(){
         guess_success()
         expect(document.getElementById("label").innerHTML).toBe("恭喜成功猜对数字")

@@ -18,7 +18,7 @@ describe("Creat Number",function(){
         expect(random_number.length).toBe(4)
     })
     it("should the number is not repeat",function(){
-        var status_number = number_is_not_repeat()
+        var status_number = number_is_not_repeat(random_number)
         expect(status_number).toBe("false")
     })
 
