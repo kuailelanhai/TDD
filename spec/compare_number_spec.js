@@ -3,7 +3,7 @@
  */
 describe("Compare Number",function(){
     beforeEach(function(){
-        random_number = "1234"
+        var random_number = "1234"
     })
     afterEach(function(){
 
