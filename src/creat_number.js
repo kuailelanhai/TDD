@@ -9,12 +9,11 @@ creat_random_number = function(){
     var random_number = ""
     for(var i = 0;i <= 3;i ++){
         var one_number = creat_one_digit_random_number()
-//        console.log(one_number)
+        console.log(check_if_one_number(random_number,one_number))
         if(check_if_one_number(random_number,one_number) == true){
-//        if(number_is_not_repeat(random_number) == "true"){
             one_number = creat_one_digit_random_number()
         }
-        random_number = random_number + one_number
+            random_number = random_number + one_number
     }
     localStorage.setItem("random_number",JSON.stringify(random_number))
     return random_number
@@ -22,8 +21,10 @@ creat_random_number = function(){
 check_if_one_number = function(random_number,one_number){
     console.log(random_number)
     console.log(one_number)
-    _.some(random_number,function(num){return num == one_number})
+    return _.some(random_number,function(num){return num == one_number})
+    console.log(_.some(random_number,function(num){return num == one_number}))
 }
+
 number_is_not_repeat = function(random_number){
 //    var random_number = JSON.parse(localStorage.getItem("random_number"))
     for(var i = 0;i< 3;i ++){
