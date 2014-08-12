@@ -19,6 +19,6 @@ describe("Creat Compare Test",function(){
         random_number = creat_random_number();
         var compare_guess_random = creat_two_random_number(random_number)
         var result = realize_analysis(compare_guess_random,random_number)
-        expect(result).toBe("2A0B")
+        expect(result).toBe("2A1B")
     })
 })
