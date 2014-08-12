@@ -10,8 +10,8 @@ creat_random_number = function(){
     for(var i = 0;i <= 3;i ++){
         var one_number = creat_one_digit_random_number()
 //        console.log(one_number)
-//        if(check_if_one_number(random_number,one_number) == true){
-        if(number_is_not_repeat(random_number) == "true"){
+        if(check_if_one_number(random_number,one_number) == true){
+//        if(number_is_not_repeat(random_number) == "true"){
             one_number = creat_one_digit_random_number()
         }
         random_number = random_number + one_number
@@ -20,16 +20,18 @@ creat_random_number = function(){
     return random_number
 }
 check_if_one_number = function(random_number,one_number){
+    console.log(random_number)
+    console.log(one_number)
     _.some(random_number,function(num){return num == one_number})
 }
 number_is_not_repeat = function(random_number){
 //    var random_number = JSON.parse(localStorage.getItem("random_number"))
     for(var i = 0;i< 3;i ++){
         for(var j = i+1;j <= 3;j++){
-            if(random_number[i] != random_number[j]){
-                return "false"
+            if(random_number[i] == random_number[j] || random_number[i] == random_number[j+1] || random_number[i] == random_number[j + 2]){
+                return "true"
             }
-            return "true"
+            return "false"
         }
     }
 }
