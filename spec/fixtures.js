@@ -25,6 +25,9 @@ creat_two_random_number = function(random_number){
     }
     console.log(random_number)
     console.log(guess_number)
+    while(check_if_one_number(random_number,one_number) == true ){
+        one_number = creat_one_digit_random_number()
+    }
     localStorage.setItem("random_number",JSON.stringify(random_number))
     console.log(guess_number + one_number)
     guess_number = guess_number + one_number
