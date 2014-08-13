@@ -19,7 +19,7 @@ describe("Creat Number",function(){
     })
     it("should the number is not repeat",function(){
         var status_number = number_is_not_repeat(random_number)
-        expect(status_number).toBe("true")
+        expect(status_number).toBe("false")
     })
 
 

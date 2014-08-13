@@ -20,11 +20,15 @@ creat_a_different_digit_random_number = function(random_number){
 creat_two_random_number = function(random_number){
     var guess_number = "",i
     var one_number = creat_a_different_digit_random_number(random_number)
-    for(var i = 0;i <= 1;i ++){
+    for(var i = 0;i < 3;i ++){
         guess_number = guess_number + random_number[i]
     }
+    console.log(random_number)
+    console.log(guess_number)
     localStorage.setItem("random_number",JSON.stringify(random_number))
-    return guess_number = guess_number + one_number
+    console.log(guess_number + one_number)
+    guess_number = guess_number + one_number
+    return guess_number
 }
 check_if_want_number = function(random_number,one_number){
     _.some(random_number,function(num){return num == one_number})
