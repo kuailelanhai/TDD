@@ -9,7 +9,6 @@ creat_random_number = function(){
     var random_number = ""
     for(var i = 0;i <= 3;i ++){
         var one_number = creat_one_digit_random_number()
-        console.log(check_if_one_number(random_number,one_number))
         while(check_if_one_number(random_number,one_number) == true){
             one_number = creat_one_digit_random_number()
         }

@@ -13,8 +13,6 @@ describe("Creat Compare Test",function(){
     it("should put create and compare combine",function(){
         var random_number = creat_random_number()
         var guess_number = random_number
-        console.log(guess_number)
-        console.log(random_number)
         var result = realize_analysis(guess_number,random_number)
         expect(result).toBe("4A0B")
     })

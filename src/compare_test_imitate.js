@@ -27,18 +27,6 @@ function button_disabled(compare){
 function get_input(){
     return document.getElementById("number").value
 }
-//function number_of_A(){
-//    return JSON.parse(localStorage.getItem("number_of_A"))
-//}
-//function number_of_B(){
-//    return JSON.parse(localStorage.getItem("number_of_B"))
-//}
-//function save_number_of_A(number){
-//    localStorage.setItem("number_of_A",number)
-//}
-//function save_number_of_B(number){
-//    localStorage.setItem("number_of_B",number)
-//}
 function put_A_and_B_number(data){
     var number_of_A=data["number_A"];
     var number_of_B=data["number_B"];
@@ -66,15 +54,6 @@ function add_number_A_time(guess_number,random_number){
     }
     return {"number_A":number_A,"number_B":number_B}
 }
-//function compare_random_input(){
-//    var guess_number = get_input()
-//    var random_number = JSON.parse(localStorage.getItem("random_number"))
-//    for(var i = 0;i <= 3; i ++){
-//        for(var j = 0;j <= 3; j ++){
-//            add_number_A_time(i,j,guess_number,random_number)
-//        }
-//    }
-//}
 function get_A_and_B_result_no_start(){
     var random_number = JSON.parse(localStorage.getItem("random_number"))
     console.log(random_number)
@@ -89,8 +68,6 @@ function get_A_and_B_result_wrong(random_number){
     console.log(random_number.length)
     var guess_number = get_input()
     if(guess_number.length != 4 || number_is_not_repeat(guess_number) == "true"){
-        console.log('++++')
-//        button_disabled(true)
         export_label("输入猜测格式不正确！")
         return
     }
@@ -125,6 +102,45 @@ function realize_analysis(guess_number, random_number) {
     return put_A_and_B_number(data)
 }
 
+
+
+function get_result_no_start(number){
+    var random_number = JSON.parse(localStorage.getItem("random_number"))
+    var i
+    for(i = 0;i<= number;i++) {
+        var guess_number = "1230"
+    }
+    if(random_number = ""){
+       return "猜测游戏尚未开始！"
+    }
+    return get_result_wrong(random_number,guess_number)
+}
+function get_result_wrong(random_number,guess_number){
+    console.log(guess_number)
+    if(guess_number.length != 4 || number_is_not_repeat(guess_number) == "true"){
+        return "输入猜测格式不正确！"
+    }
+    else
+        return get_result_success(random_number,guess_number)
+}
+function get_result_success(random_number,guess_number){
+    var number_of_time = JSON.parse(localStorage.getItem("number_of_time"))
+    if(random_number == guess_number && number_of_time < 6){
+        return "恭喜成功猜对数字!"
+    }
+    return continue_guesses(random_number,guess_number,number_of_time)
+}
+function get_failed(random_number,number_of_time,guess_number){
+    if(random_number != guess_number && number_of_time == 6){
+        return "对不起，您没有猜对数字，随机数字为:" + random_number
+    }
+}
+function continue_guesses(random_number,guess_number,number_of_time){
+    if (random_number != guess_number && number_of_time < 6) {
+        return realize_analysis(guess_number, random_number)
+    }
+    return get_failed(random_number,number_of_time,guess_number)
+}
 
 
 

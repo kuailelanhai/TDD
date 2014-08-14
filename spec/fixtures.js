@@ -18,18 +18,15 @@ creat_a_different_digit_random_number = function(random_number){
     return one_number
 }
 creat_two_random_number = function(random_number){
-    var guess_number = "",i
+    var guess_number = ""
     var one_number = creat_a_different_digit_random_number(random_number)
     for(var i = 0;i < 3;i ++){
         guess_number = guess_number + random_number[i]
     }
-    console.log(random_number)
-    console.log(guess_number)
     while(check_if_one_number(random_number,one_number) == true ){
         one_number = creat_one_digit_random_number()
     }
     localStorage.setItem("random_number",JSON.stringify(random_number))
-    console.log(guess_number + one_number)
     guess_number = guess_number + one_number
     return guess_number
 }

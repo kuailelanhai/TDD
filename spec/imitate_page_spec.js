@@ -12,7 +12,8 @@ describe("Creat Number",function() {
         localStorage.clear()
     })
     it("should be show success when first export 1234",function(){
-        guess_success()
+        var random_number = "1234"
+        get_result_no_start(0)
         expect(document.getElementById("label").innerHTML).toBe("恭喜成功猜对数字!")
     })
     it("should be show success when third export 1234",function(){
