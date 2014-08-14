@@ -6,7 +6,7 @@ describe("Compare Number",function(){
         var random_number = "1234"
     })
     afterEach(function(){
-
+        localStorage.clear()
     })
     var random_number = "1234"
     it("should be realize compare number",function(){

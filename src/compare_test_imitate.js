@@ -1,23 +1,6 @@
 /**
  * Created by guorui on 14-8-10.
  */
-//function guess_success(){
-//    document.getElementById("number").value = "1234"
-//    document.getElementById("confirm_button").click()
-////    get_result_no_start()
-//}
-//function guess_failed(number){
-//    var i
-//    for(i = 0;i<= number;i++) {
-//        document.getElementById("number").value = "1230"
-//        document.getElementById("confirm_button").click()
-//    }
-//}
-//function guess(){
-//    document.getElementById("number").value = ""
-//    document.getElementById("label").innerHTML = "请点击‘开始’按钮"
-//    document.getElementById("confirm_button").disabled = true
-//}
 function export_label(message){
     document.getElementById("label").innerHTML = message
 }
@@ -27,32 +10,10 @@ function button_disabled(compare){
 function get_input(){
     return document.getElementById("number").value
 }
-function put_A_and_B_number(data){
-    var number_of_A=data["number_A"];
-    var number_of_B=data["number_B"];
-    return number_of_A + "A" + number_of_B + "B"
-}
 function add_number_of_time(){
     var number = JSON.parse(localStorage.getItem("number_of_time"))
     number = number + 1
     localStorage.setItem("number_of_time",number)
-}
-function add_number_A_time(guess_number,random_number){
-    var number_A=0;
-    var number_B=0;
-    var random_number =random_number + ""
-    var guess_number = guess_number + ""
-    for(var i = 0;i <= 3; i ++){
-        for(var j = 0;j <= 3; j ++){
-            if(guess_number[i] == random_number[j] && i == j){
-                number_A = number_A + 1;
-            }
-            if(guess_number[i] == random_number[j] && i != j){
-                number_B = number_B + 1
-            }
-        }
-    }
-    return {"number_A":number_A,"number_B":number_B}
 }
 function get_A_and_B_result_no_start(){
     var random_number = JSON.parse(localStorage.getItem("random_number"))
@@ -77,7 +38,7 @@ function get_A_and_B_result_wrong(random_number){
 function get_A_and_B_result_success(random_number,guess_number){
     var number_of_time = JSON.parse(localStorage.getItem("number_of_time"))
     console.log(number_of_time)
-    if(random_number == guess_number && test_number_times){
+    if(random_number == guess_number && test_number_times() == true){
         button_disabled(true)
         export_label("恭喜成功猜对数字!")
         return
@@ -85,13 +46,13 @@ function get_A_and_B_result_success(random_number,guess_number){
     return continue_guess(random_number,guess_number,number_of_time)
 }
 function get_A_and_B_failed(random_number,number_of_time,guess_number){
-    if(random_number != guess_number && number_of_time == 6){
+    if(random_number != guess_number && test_number_times() == false){
         button_disabled(true)
         export_label("对不起，您没有猜对数字，随机数字为:" + random_number)
     }
 }
 function continue_guess(random_number,guess_number,number_of_time){
-    if (random_number != guess_number && number_of_time < 6) {
+    if (random_number != guess_number && test_number_times() == true) {
         export_label(realize_analysis(guess_number, random_number));
     }
     return get_A_and_B_failed(random_number,number_of_time,guess_number)

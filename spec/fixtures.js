@@ -5,7 +5,7 @@ function clear(){
     localStorage.random_number = ""
     document.getElementById("number").value = ""
     document.getElementById("label").innerHTML = ""
-    document.getElementById("confirm_button").disabled = false
+    document.getElementById("confirm_button").disabled = "true"
     localStorage.number_of_time = "0"
     localStorage.number_of_A = "0"
     localStorage.number_of_B ="0"
