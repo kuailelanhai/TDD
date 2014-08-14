@@ -1,23 +1,23 @@
 /**
  * Created by guorui on 14-8-10.
  */
-function guess_success(){
-    document.getElementById("number").value = "1234"
-    document.getElementById("confirm_button").click()
-//    get_result_no_start()
-}
-function guess_failed(number){
-    var i
-    for(i = 0;i<= number;i++) {
-        document.getElementById("number").value = "1230"
-        document.getElementById("confirm_button").click()
-    }
-}
-function guess(){
-    document.getElementById("number").value = ""
-    document.getElementById("label").innerHTML = "请点击‘开始’按钮"
-    document.getElementById("confirm_button").disabled = true
-}
+//function guess_success(){
+//    document.getElementById("number").value = "1234"
+//    document.getElementById("confirm_button").click()
+////    get_result_no_start()
+//}
+//function guess_failed(number){
+//    var i
+//    for(i = 0;i<= number;i++) {
+//        document.getElementById("number").value = "1230"
+//        document.getElementById("confirm_button").click()
+//    }
+//}
+//function guess(){
+//    document.getElementById("number").value = ""
+//    document.getElementById("label").innerHTML = "请点击‘开始’按钮"
+//    document.getElementById("confirm_button").disabled = true
+//}
 function export_label(message){
     document.getElementById("label").innerHTML = message
 }
@@ -77,7 +77,7 @@ function get_A_and_B_result_wrong(random_number){
 function get_A_and_B_result_success(random_number,guess_number){
     var number_of_time = JSON.parse(localStorage.getItem("number_of_time"))
     console.log(number_of_time)
-    if(random_number == guess_number && number_of_time < 6){
+    if(random_number == guess_number && test_number_times){
         button_disabled(true)
         export_label("恭喜成功猜对数字!")
         return
@@ -103,44 +103,54 @@ function realize_analysis(guess_number, random_number) {
 }
 
 
-
-function get_result_no_start(number){
-    var random_number = JSON.parse(localStorage.getItem("random_number"))
-    var i
-    for(i = 0;i<= number;i++) {
-        var guess_number = "1230"
-    }
-    if(random_number = ""){
-       return "猜测游戏尚未开始！"
-    }
-    return get_result_wrong(random_number,guess_number)
-}
-function get_result_wrong(random_number,guess_number){
-    console.log(guess_number)
-    if(guess_number.length != 4 || number_is_not_repeat(guess_number) == "true"){
-        return "输入猜测格式不正确！"
-    }
-    else
-        return get_result_success(random_number,guess_number)
-}
-function get_result_success(random_number,guess_number){
-    var number_of_time = JSON.parse(localStorage.getItem("number_of_time"))
-    if(random_number == guess_number && number_of_time < 6){
-        return "恭喜成功猜对数字!"
-    }
-    return continue_guesses(random_number,guess_number,number_of_time)
-}
-function get_failed(random_number,number_of_time,guess_number){
-    if(random_number != guess_number && number_of_time == 6){
-        return "对不起，您没有猜对数字，随机数字为:" + random_number
-    }
-}
-function continue_guesses(random_number,guess_number,number_of_time){
-    if (random_number != guess_number && number_of_time < 6) {
-        return realize_analysis(guess_number, random_number)
-    }
-    return get_failed(random_number,number_of_time,guess_number)
-}
+//
+//function get_result_no_start(number,guess_number,random_number){
+//    console.log('1')
+//    console.log(guess_number)
+//    console.log(random_number)
+//    if(random_number == ""){
+//       return "猜测游戏尚未开始！"
+//    }
+//    console.log(random_number)
+//    return get_result_wrong(number,random_number,guess_number)
+//}
+//function get_result_wrong(number,random_number,guess_number){
+//    console.log('2')
+//    console.log(guess_number)
+//    console.log(random_number)
+//    if(guess_number.length != 4 || number_is_not_repeat(guess_number) == "true"){
+//        return "输入猜测格式不正确！"
+//    }
+//    else
+//        return get_result_success(number,random_number,guess_number)
+//}
+//function get_result_success(number,random_number,guess_number){
+//    console.log('3')
+//    console.log(guess_number)
+//    console.log(random_number)
+//    var number = number
+//    console.log(number)
+//    console.log(guess_number)
+//    console.log(random_number)
+//    if(random_number == guess_number && number+"" < 6){
+//        console.log('1000')
+//        return "恭喜成功猜对数字!"
+//    }
+//    return continue_guesses(number,random_number,guess_number)
+//}
+//function get_failed(number,random_number,guess_number){
+//    console.log('5')
+//    if(random_number != guess_number && number == 6){
+//        return "对不起，您没有猜对数字，随机数字为:" + random_number
+//    }
+//}
+//function continue_guesses(number,random_number,guess_number){
+//    console.log('4')
+//    if (random_number != guess_number && number < 6) {
+//        return realize_analysis(guess_number, random_number)
+//    }
+//    return get_failed(number,random_number,guess_number)
+//}
 
 
 
